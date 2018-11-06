@@ -8,6 +8,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   ellipseMode(CENTER);
   imageMode(CENTER);
+  textAlign(CENTER);
 
   cam = createCapture(VIDEO);
   cam.size(640,480);
@@ -22,6 +23,9 @@ mic.start();
 
 function draw() {
     background(255);
+    fill(0);
+    textSize(50);
+    text("Make some noise", windowWidth/2,windowHeight/8);
   // put drawing code here
   //translate(windowWidth/2,windowHeight/2);
   var vol=mic.getLevel();
@@ -43,7 +47,7 @@ for(var x = 0; x < cam.width; x += 10) {
     for(var y = 0; y <cam.height; y += 10) {
       var myColor= myImage.get(x,y);
       fill(myColor);
-      ellipse(x, y, vol*50);
+      ellipse(x, y, vol*100);
     }
   }
   pop();
